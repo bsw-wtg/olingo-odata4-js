@@ -21,7 +21,7 @@
     
 
 // version information 
-exports.version = { major: 4, minor: 0, build: 6 };
+exports.version = { major: 4, minor: 0, build: 7 };
 
 // core stuff, always needed
 exports.deferred = require('./lib/deferred.js');
@@ -5705,7 +5705,10 @@ exports.lookupDefaultEntityContainer = lookupDefaultEntityContainer;
 exports.lookupEntityContainer = lookupEntityContainer;
 exports.lookupEntitySet = lookupEntitySet;
 exports.lookupSingleton = lookupSingleton;
+exports.lookupAction = lookupAction;
+exports.lookupFunction = lookupFunction;
 exports.lookupEntityType = lookupEntityType;
+exports.lookupActionImport = lookupActionImport;
 exports.lookupFunctionImport = lookupFunctionImport;
 exports.lookupNavigationPropertyType = lookupNavigationPropertyType;
 exports.lookupNavigationPropertyEntitySet = lookupNavigationPropertyEntitySet;
@@ -8127,7 +8130,7 @@ exports.xmlSiblingElement = xmlSiblingElement;
   var modules = {};
 
   var require = function (path) {
-    var name = path.substring(path.lastIndexOf('/') + 1, path.length - 3);
+    var name = path.substring(path.lastIndexOf('/') + 1, path.length - 3).replace('-browser', '');
     if (modules[name]) { return modules[name].exports; }
 
     modules[name] = { exports: {} };

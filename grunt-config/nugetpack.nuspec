@@ -4,8 +4,8 @@
     <title>Olingo OData Client for JavaScript</title>
     <id>odatajs</id>
     <tags>restful api open protocol odata client javascript</tags>
-    <version>4.0.6</version>
-    <authors>Apache Olingo (Challen He, Kobler-Morris Sven)</authors>
+    <version>4.0.7</version>
+    <authors>Apache Olingo (Challen He, Kobler-Morris Sven), Travis Schettler</authors>
     <owners>Apache Olingo</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <copyright>Copyright 2014 The Apache Software Foundation</copyright>
