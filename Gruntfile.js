@@ -45,9 +45,10 @@ module.exports = function(grunt) {
     },
     "uglify": { // uglify and minify the lib
       options: {
-        sourceMap : true,
+        sourceMap : {
+          includeSources: true
+        },
         sourceMapName : "dist/<%= artifactname %>.map",
-        sourceMapIncludeSources : true,
         banner : "<%= banner %>"
       },
       "browser": {
