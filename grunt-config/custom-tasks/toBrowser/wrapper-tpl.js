@@ -26,7 +26,7 @@
   var modules = {};
 
   var require = function (path) {
-    var name = path.substring(path.lastIndexOf('/') + 1, path.length - 3);
+    var name = path.substring(path.lastIndexOf('/') + 1, path.length - 3).replace('-browser', '');
     if (modules[name]) { return modules[name].exports; }
 
     modules[name] = { exports: {} };

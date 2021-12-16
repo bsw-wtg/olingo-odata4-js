@@ -69,7 +69,7 @@
         var schema = window.odatajs.oData.metadata.schema;
         var cases = [
             { ip: schema.elements.EntityType, ie: "Property", e: { isArray: true, propertyName: "property"} },
-            { ip: schema.elements.EntityType, ie: "Key", e: { isArray: true, propertyName: "key"} },
+            { ip: schema.elements.EntityType, ie: "Key", e: { isArray: false, propertyName: "key"} },
             { ip: schema.elements.EntitySet, ie: "SomethingElse", e: null },
             { ip: schema.elements.Property, ie: "Name", e: null} // this is an attribute, not an element, thus it's no found
         ];
@@ -247,17 +247,17 @@
                 "namespace": "TestCatalog.Model",
                 "entityType": [{
                     "name": "Genre",
-                    "key": [{ "propertyRef": [{ "name": "Name"}] }],
+                    "key": { "propertyRef": [{ "name": "Name"}] },
                     "property": [{ "name": "Name", "type": "Edm.String", "nullable": "false", "maxLength": "50", "unicode": "false"}],
                     "navigationProperty": [{ "name": "Titles", "partner": "Series", "type": "Collection(TestCatalog.Model.Title)"}]
                 }, {
                     "name": "Language",
-                    "key": [{ "propertyRef": [{ "name": "Name"}] }],
+                    "key": { "propertyRef": [{ "name": "Name"}] },
                     "property": [{ "name": "Name", "type": "Edm.String", "nullable": "false", "maxLength": "80", "unicode": "false"}],
                     "navigationProperty": [{ "name": "Titles", "partner": "Languages", "type": "Collection(TestCatalog.Model.Title)"}]
                 }, {
                     "name": "Person",
-                    "key": [{ "propertyRef": [{ "name": "Id"}] }],
+                    "key": { "propertyRef": [{ "name": "Id"}] },
                     "property": [
                         { "name": "Id", "type": "Edm.Int32", "nullable": "false" },
                         { "name": "Name", "type": "Edm.String", "nullable": "false", "maxLength": "80", "unicode": "true" }
@@ -269,7 +269,7 @@
                     ]
                 }, {
                     "name": "TitleAudioFormat",
-                    "key": [{ "propertyRef": [{ "name": "TitleId" }, { "name": "DeliveryFormat" }, { "name": "Language" }, { "name": "Format"}] }],
+                    "key": { "propertyRef": [{ "name": "TitleId" }, { "name": "DeliveryFormat" }, { "name": "Language" }, { "name": "Format"}] },
                     "property": [
                         { "name": "TitleId", "type": "Edm.String", "nullable": "false", "maxLength": "30" },
                         { "name": "DeliveryFormat", "type": "Edm.String", "nullable": "false", "maxLength": "10", "unicode": "false" },
@@ -279,7 +279,7 @@
                     "navigationProperty": [{ "name": "Title", "partner": "AudioFormats", "referentialConstraint": [{"property": "TitleId", "referencedProperty": "Id"}], "type": "TestCatalog.Model.Title" }]
                 }, {
                     "name": "TitleAward",
-                    "key": [{ "propertyRef": [{ "name": "Id"}] }],
+                    "key": { "propertyRef": [{ "name": "Id"}] },
                     "property": [
                         { "name": "Id", "type": "Edm.Guid", "nullable": "false" },
                         { "name": "Type", "type": "Edm.String", "nullable": "false", "maxLength": "30", "unicode": "false" },
@@ -293,7 +293,7 @@
                 }, {
                     "name": "Title",
                     "hasStream": "true",
-                    "key": [{ "propertyRef": [{ "name": "Id"}] }],
+                    "key": { "propertyRef": [{ "name": "Id"}] },
                     "property": [
                         { "name": "Id", "type": "Edm.String", "nullable": "false", "maxLength": "30" },
                         { "name": "Synopsis", "type": "Edm.String", "nullable": "true", "maxLength": "Max", "unicode": "false" },
@@ -329,7 +329,7 @@
                     ]
                 }, {
                     "name": "TitleScreenFormat",
-                    "key": [{ "propertyRef": [{ "name": "TitleId" }, { "name": "DeliveryFormat" }, { "name": "Format"}]}],
+                    "key": { "propertyRef": [{ "name": "TitleId" }, { "name": "DeliveryFormat" }, { "name": "Format"}]},
                     "property": [
                         { "name": "TitleId", "type": "Edm.String", "nullable": "false", "maxLength": "30" },
                         { "name": "DeliveryFormat", "type": "Edm.String", "nullable": "false", "maxLength": "10", "unicode": "false" },

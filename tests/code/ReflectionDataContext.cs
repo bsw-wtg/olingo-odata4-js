@@ -27,7 +27,7 @@ namespace DataJS.Tests
     using System.Globalization;
     using System.Linq;
     using System.Reflection;
-    using System.Data.Services;
+    using Microsoft.OData.Service;
 
     /// <summary>
     /// Provides a reflection-based, updatable data context.

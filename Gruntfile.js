@@ -45,9 +45,10 @@ module.exports = function(grunt) {
     },
     "uglify": { // uglify and minify the lib
       options: {
-        sourceMap : true,
+        sourceMap : {
+          includeSources: true
+        },
         sourceMapName : "dist/<%= artifactname %>.map",
-        sourceMapIncludeSources : true,
         banner : "<%= banner %>"
       },
       "browser": {
@@ -121,7 +122,8 @@ module.exports = function(grunt) {
   grunt.registerTask('clean', 'Clean the temporary build directories', ['priv-clean:build']);
 
   //    BUILD the odatajs library
-  grunt.registerTask('build', 'Build the odatajs library', ['clean:build','toBrowser:release', 'uglify:browser', 'copy:to-latest', 'nugetpack']);
+  grunt.registerTask('build', 'Build the odatajs library', ['clean:build','toBrowser:release', 'uglify:browser', 'copy:to-latest']);
+  grunt.registerTask('build:all', 'Build the odatajs library', ['clean:build','toBrowser:release', 'uglify:browser', 'copy:to-latest', 'nugetpack']);
 
   //    Create DOCumentation in /_build/doc
   grunt.registerTask('doc', 'Create documentation in folder ./doc',['clearEnv', 'jsdoc:src']);
