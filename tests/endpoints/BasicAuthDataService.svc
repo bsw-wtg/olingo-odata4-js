@@ -1,5 +1,6 @@
-<%@ ServiceHost Language="C#" Factory="Microsoft.OData.Service.DataServiceHostFactory, Microsoft.OData.Service, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+<%@ ServiceHost Language="C#" Factory="Microsoft.OData.Service.DataServiceHostFactory, Microsoft.OData.Service"
     Service="DataJS.Tests.BasicAuthDataService" %>
+//<!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,6 +19,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+//-->
+
 namespace DataJS.Tests
 {
     using System;
@@ -28,6 +31,7 @@ namespace DataJS.Tests
     using System.ServiceModel.Web;
     using System.Text;
     using System.Web;
+    using Microsoft.OData.Client;
 
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class BasicAuthDataService : DataService<BasicAuthDataSource>
@@ -40,7 +44,7 @@ namespace DataJS.Tests
         {
             config.SetEntitySetAccessRule("*", EntitySetRights.All);
             config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
-            config.DataServiceBehavior.MaxProtocolVersion = Microsoft.OData.Client.ODataProtocolVersion.V4;
+            config.DataServiceBehavior.MaxProtocolVersion = ODataProtocolVersion.V4;
             config.UseVerboseErrors = true;
         }
 

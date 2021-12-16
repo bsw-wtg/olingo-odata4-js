@@ -76,7 +76,7 @@
         </td><td>
             <button id="btnMetaData">MetaData</button><br/>
             <button id="btnPOST_entry_food">POST food entry</button><br/>
-            <button id="btnPOST_entry_categorie">POST categorie entry</button><br/>
+            <button id="btnPOST_entry_category">POST category entry</button><br/>
         </td></tr></table>
         <div id='resultsArea' data-type="json">
         </div>
@@ -211,7 +211,7 @@
                 };
                 odatajs.oData.read(requestUri, success, errorFunc);
             });
-            $('#btnPOST_entry_categorie').on("click", function(){
+            $('#btnPOST_entry_category').on("click", function(){
 
                 var requestUri = {
                     requestUri : 'http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categories',

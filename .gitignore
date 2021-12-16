@@ -5,6 +5,7 @@ _*
 *.tgz
 
 # ignore IDE settings
+.vs
 .idea
 olingo-odata4-js.iml
 

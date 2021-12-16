@@ -1,4 +1,6 @@
-<!--
+<%@ ServiceHost Language="C#" Factory="Microsoft.OData.Service.DataServiceHostFactory, Microsoft.OData.Service"
+    Service="DataJS.Tests.EpmDataService" %>
+//<!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,11 +19,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
--->
-
-<%@ ServiceHost Language="C#" Factory="Microsoft.OData.Service.DataServiceHostFactory, Microsoft.OData.Service, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-    Service="DataJS.Tests.EpmDataService" %>
-
+//-->
 
 namespace DataJS.Tests
 {
@@ -30,6 +28,7 @@ namespace DataJS.Tests
     using Microsoft.OData.Service;
     using System.Linq;
     using System.ServiceModel.Web;
+    using Microsoft.OData.Client;
 
     /// <summary>
     /// A data service that uses EPM
@@ -42,11 +41,11 @@ namespace DataJS.Tests
         {
             config.SetEntitySetAccessRule("*", EntitySetRights.All);
             config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
-            config.DataServiceBehavior.MaxProtocolVersion = Microsoft.OData.Client.ODataProtocolVersion.V4;
+            config.DataServiceBehavior.MaxProtocolVersion = ODataProtocolVersion.V4;
             config.UseVerboseErrors = true;
 
         }
-        
+
         [WebInvoke]
         public void ResetData()
         {
@@ -112,7 +111,7 @@ namespace DataJS.Tests
                         Long = 2.72f
                     }
                 },
-                
+
                 new MappedEntry
                 {
                     ID = 1,
@@ -146,7 +145,7 @@ namespace DataJS.Tests
                         Long = float.MinValue
                     }
                 },
-                
+
                 new MappedEntry
                 {
                     ID = 2,
@@ -254,7 +253,7 @@ namespace DataJS.Tests
         public string Name { get; set; }
         public string Uri { get; set; }
     }
-    
+
     public class Location
     {
         public float Lat { get; set; }
@@ -281,7 +280,7 @@ namespace DataJS.Tests
         public float Lat { get; set; }
         public float Long { get; set; }
     }
-    
+
     public class MappedEntry
     {
         public int ID { get; set; }
@@ -319,7 +318,7 @@ namespace DataJS.Tests
         public string CommonAttribute2 { get; set; }
         public Location2 Location { get; set; }
     }
-    
+
     public class BaseEntry
     {
         public int ID { get; set; }
@@ -327,7 +326,7 @@ namespace DataJS.Tests
         public string MappedInDerivedField { get; set; }
         public string MappedField { get; set; }
     }
-    
+
     public class DerivedEntry : BaseEntry
     {
         public string UnmappedConcreteField { get; set; }
