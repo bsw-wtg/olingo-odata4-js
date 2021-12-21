@@ -27,6 +27,8 @@ node_modules/
 bin/
 obj/
 packages/
+Microsoft.OData.Service/
+Scripts/
 *.config
 JSLib.*
 package-lock.json

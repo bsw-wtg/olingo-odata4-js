@@ -14,5 +14,6 @@ package-lock.json
 mocha.opts
 info.txt
 olingo-odata4-js.iml
+debug.log
 .*nupkg
 .*ts

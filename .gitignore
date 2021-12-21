@@ -3,6 +3,7 @@ _*
 
 # extensions
 *.tgz
+*.log
 
 # ignore IDE settings
 .vs
