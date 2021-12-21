@@ -21,7 +21,7 @@
     
 
 // version information 
-exports.version = { major: 4, minor: 0, build: 7 };
+exports.version = { major: 4, minor: 0, build: 8 };
 
 // core stuff, always needed
 exports.deferred = require('./lib/deferred.js');
@@ -7483,7 +7483,7 @@ function xmlParse(text) {
     if (utils.inBrowser()) {
         domParser = window.DOMParser && new window.DOMParser();
     } else {
-        domParser = new (require('xmldom').DOMParser)();
+        domParser = new (require('@xmldom/xmldom').DOMParser)();
     }
     var dom;
 

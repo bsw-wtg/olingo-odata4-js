@@ -22,7 +22,7 @@ var odatajs = {};
 odatajs.version = {
     major: 4,
     minor: 0,
-    build: 7
+    build: 8
 };
 
 // core stuff, alway needed
