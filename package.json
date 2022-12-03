@@ -1,6 +1,6 @@
 {
   "name": "ts-odatajs",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "postfix": "",
   "releaseCandidate": "",
   "title": "Olingo OData Client for TypeScript",
@@ -34,7 +34,14 @@
       "email": "travis_schettler@hotmail.com"
     }
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "grunt build",
+    "build:all": "grunt build:all",
+    "clean": "grunt clean",
+    "doc": "grunt doc",
+    "grunt": "./node_modules/.bin/grunt",
+    "release": "grunt release"
+  },
   "dependencies": {
     "@xmldom/xmldom": "^0.7.5"
   },

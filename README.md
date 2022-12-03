@@ -25,7 +25,7 @@ For using the OData protocols V1-V3 please refer to the [datajs library](http://
 
 The odatajs library can be included in any html page with the script tag (for example)
 ```
-<script type="text/javascript" src="./dist/odatajs-4.0.8.min.js"></script>
+<script type="text/javascript" src="./dist/odatajs-4.0.9.min.js"></script>
 ```
 Its features can be used through the `odatajs` namespace, `window.odatajs`, or `ts-odatajs` (using TypeScript). The odatajs library can be used together with the datajs library which uses the `window.OData` namespace.
 

@@ -3019,9 +3019,6 @@ function addMinimalMetadataToJsonPayload(data, model, recognizeDates) {
 
         case PAYLOADTYPE_SVCDOC:
             return data;
-
-        case PAYLOADTYPE_LINKS:
-            return data;
     }
 
     return data;
