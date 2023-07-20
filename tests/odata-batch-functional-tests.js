@@ -30,8 +30,9 @@
         var expected = 0;
         $.each(batchRequests, function (_, batchRequest) {
             // 2 assertions per request: response code and data
+            // + 1 assertion per change request for Content-ID header
             if (batchRequest.__changeRequests) {
-                expected += batchRequest.__changeRequests.length * 2;
+                expected += batchRequest.__changeRequests.length * 3;
             } else {
                 expected += 2;
             }
@@ -71,6 +72,7 @@
         forEachAsync(changeRequests, function (index, changeRequest, doneOne) {
             var httpOperation = changeRequest.method + " " + changeRequest.requestUri;
             var changeResponse = changeResponses[index];
+            djstest.assertAreEqual(changeResponse.headers["Content-ID"], changeRequest.headers["Content-ID"], "Verify Content-ID header");
 
             if (changeRequest.method == "POST") {
                 djstest.assertAreEqual(changeResponse.statusCode, httpStatusCode.created, "Verify response code for: " + httpOperation);

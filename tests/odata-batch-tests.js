@@ -319,6 +319,7 @@ Content-Type: multipart/mixed; boundary=changesetresponse_905a1494-fd76-4846-93f
 --changesetresponse_905a1494-fd76-4846-93f9-a3431f0bf5a2\r\n\
 Content-Type: application/http\r\n\
 Content-Transfer-Encoding: binary\r\n\
+Content-ID: 1\r\n\
 \r\n\
 HTTP/1.1 201 OK\r\n\
 OData-Version: 4.0;\r\n\
@@ -331,6 +332,7 @@ Location: http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categ
 --changesetresponse_905a1494-fd76-4846-93f9-a3431f0bf5a2\r\n\
 Content-Type: application/http\r\n\
 Content-Transfer-Encoding: binary\r\n\
+Content-ID: 2\r\n\
 \r\n\
 HTTP/1.1 204 No Content\r\n\
 X-Content-Type-Options: nosniff\r\n\
@@ -357,6 +359,7 @@ Content-Type: multipart/mixed; boundary=changesetresponse_92cc2ae8-a5f2-47fc-aaa
 --changesetresponse_92cc2ae8-a5f2-47fc-aaa3-1ff9e7453b07\r\n\
 Content-Type: application/http\r\n\
 Content-Transfer-Encoding: binary\r\n\
+Content-ID: 3\r\n\
 \r\n\
 HTTP/1.1 201 OK\r\n\
 OData-Version: 4.0;\r\n\
@@ -369,6 +372,7 @@ Location: http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categ
 --changesetresponse_92cc2ae8-a5f2-47fc-aaa3-1ff9e7453b07\r\n\
 Content-Type: application/http\r\n\
 Content-Transfer-Encoding: binary\r\n\
+Content-ID: 4\r\n\
 \r\n\
 HTTP/1.1 204 No Content\r\n\
 X-Content-Type-Options: nosniff\r\n\
@@ -394,7 +398,9 @@ OData-Version: 4.0;\r\n\
             
             djstest.assertAreEqual(batchResponses[0].data, undefined, "No data defined for batch response 1");
             djstest.assertAreEqual(changesetResponses[0].headers["Location"], "http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categories(42)", "part 1 of the changeset response of the response 1 was read");
+            djstest.assertAreEqual(changesetResponses[0].headers["Content-ID"], "1", "part 1 Content-ID header of the changeset response of the response 1 was read");
             djstest.assertAreEqual(changesetResponses[0].data["CategoryID"], 42, "part 1 data of the changeset response of the response 1 was read");
+            djstest.assertAreEqual(changesetResponses[1].headers["Content-ID"], "2", "part 2 Content-ID header of the changeset response of the response 1 was read");
             djstest.assertAreEqual(changesetResponses[1].data, undefined, "No data defined for no content only response in part 2 of the changeset response of the response 1");
             
             djstest.assertAreEqual(batchResponses[1].headers["Location"], "http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categories(41)", "response 2 was read");
@@ -402,7 +408,9 @@ OData-Version: 4.0;\r\n\
             
             djstest.assertAreEqual(batchResponses[2].data, undefined, "No data defined for");
             djstest.assertAreEqual(changesetResponses3[0].headers["Location"], "http://localhost:4002/tests/endpoints/FoodStoreDataServiceV4.svc/Categories(43)", "part 1 of the changeset response of the response 3 was read");
+            djstest.assertAreEqual(changesetResponses3[0].headers["Content-ID"], "3", "part 1 Content-ID header of the changeset response of the response 3 was read");
             djstest.assertAreEqual(changesetResponses3[0].data["CategoryID"], 43, "part 1 data of the changeset response of the response 3 was read");
+            djstest.assertAreEqual(changesetResponses3[1].headers["Content-ID"], "4", "part 2 Content-ID header of the changeset response of the response 3 was read");
             djstest.assertAreEqual(changesetResponses3[1].data, undefined, "No data defined for no content only response in part 2 of the changeset response of the response 3");
             djstest.done();
         }, null, window.odatajs.oData.batch.batchHandler, MockHttpClient);
